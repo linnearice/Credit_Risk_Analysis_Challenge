@@ -2,12 +2,12 @@
 
 ## Overview
 In working with a lead data scientist at Fast Lending, Data Analyst Inc (DAI) modeled several different machine learning tools to predict credit risk.
-Using credit card dataset from Lending Club, a peer-to-peer lending services company, DAI completed the following:
+Using a credit card dataset from Lending Club, a peer-to-peer lending services company, DAI completed the following:
 
 * oversampled the data using RandomOversampler and SMOTE algorithms,
 * undersampled the data using the ClusterCentroid algorithm,
 * used a combinatorial approach (over- and under-sampling) with SMOTEENN, and 
-* used two machine learning models which reduce bias - BalancedRandomForestClassifier and EasyEnsembleClassifier.
+* used two machine learning ensembler models which reduce bias - BalancedRandomForestClassifier and EasyEnsembleClassifier.
 
 
 ## Results
@@ -34,13 +34,13 @@ In this model, DAI undersampled a cluster of the majority class of low risk loan
 
 ![SMOTEENN](https://user-images.githubusercontent.com/35401581/145309882-994db0c2-8944-4ee9-aecf-0e07ae63b015.png)
 
-In this model DAI combined undersampling and oversampling combined with the EditedNearestNeighbor method (SMOTEENN).  Again, the results were very close to the previous models most closely following Random Oversampling.  The accuracy score is 68%.  The high risk precision rate is 1% and the low risk is 100% with a low risk sensitivity rate of 57%.  
+In this model DAI combined undersampling and oversampling combined with the EditedNearestNeighbor method (SMOTEENN).  Again, the results were very close to the previous models most closely following Random Oversampling.  The accuracy score is 68%.  The high risk precision rate is 1% and the low risk is 100% with a low risk sensitivity rate of 57% and an overall F1 factor of 72%.  
 
 **Random Forest Classifier**
 
 ![Random Forest Classifier](https://user-images.githubusercontent.com/35401581/145309892-894e71a4-1e39-49e5-9c30-c7b913d69cf2.png)
 
-The Random Forest Classifier a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting.  This method appears to outperform the prior methods in some ways. The accuracy score is 68%, still relatively the same as the other models aside from the cluster centroid method which was lower.  However, the precision score for the high-risk loans is much improved at 88%.  The average F1 scores is 72%.  
+The Random Forest Classifier is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting.  This method appears to outperform the prior methods in some ways. The accuracy score is 68%, still relatively the same as the other models aside from the cluster centroid method which was lower.  However, the precision score for the high-risk loans is much improved at 88%.  While the average F1 score is 100%, the high risk loans have a 37% recall rate and a 52% F1 factor.  
 
 **Easy Enemble Classifier**
 
@@ -49,5 +49,9 @@ The Random Forest Classifier a meta estimator that fits a number of decision tre
 This algorithm is known as EasyEnsembleClassifier. The classifier is an ensemble of AdaBoost learners trained on different balanced boostrap samples. The balancing is achieved by random under-sampling.  This model outperforms all other models based on an accuracy rate of 93%.  However, the precision of high risk loans is still low at 9% with a sensitivity or recall ratio of 92% but with an F1 factor of 16%.
 
 ## Summary
-In reviewing all six models, the EasyEnsembleClassifer model yielded the best results overall with an accuracy rate of 93%.  The recall rate was also the highest at 92% compared to the other models. The result for predicting low risk was also the highest with the sensitivity rate at 94% and an F1 score of 97%.  However, when predicting high risk candidates the the precision rate was still low at 9%.  Perhaps there is room for improvement. 
+In reviewing all six models, the ensembler methods - the Easy Ensemble Classifer and Random Forest Classifier models - yielded the best results, respectively.  
+* The best candidate is Easy Enssembler Classifier which has the best overall accuracy rate of 93%.  The overall sensitivity (recall) rate was second at 94% as was the overall F1 score at 97%.  However, when predicting high risk candidates the the precision rate was still low at 9%.  Perhaps there is room for improvement.
+* The Random Forest Classifier has a decent but not as solid accuracy rate of 68%.  Out of all of the models though Random Forest showed the highest high risk precision rate at 88%.  The overall precision rate, recall rate and F1 factor are all 100%.  In reviewing the numbers though that make up this calculation they are very low in comparison to the total number of loans.  Perhaps a more thorough review is needed here.  
+
+   
 

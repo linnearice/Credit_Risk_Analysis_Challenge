@@ -50,7 +50,7 @@ This algorithm is known as EasyEnsembleClassifier. The classifier is an ensemble
 
 ## Summary
 In reviewing all six models, the ensembler methods - the Easy Ensemble Classifer and Random Forest Classifier models - yielded the best results, respectively.  
-* The best candidate is Easy Enssembler Classifier which has the best overall accuracy rate of 93%.  The overall sensitivity (recall) rate was second at 94% as was the overall F1 score at 97%.  However, when predicting high risk candidates the the precision rate was still low at 9%.  Perhaps there is room for improvement.
+* The best candidate is Easy Ensembler Classifier which has the best overall accuracy rate of 93%.  The overall sensitivity (recall) rate was second at 94% as was the overall F1 score at 97%.  However, when predicting high risk candidates the the precision rate was still low at 9%.  Perhaps there is room for improvement.
 * The Random Forest Classifier has a decent but not as solid accuracy rate of 68%.  Out of all of the models though Random Forest showed the highest high risk precision rate at 88%.  The overall precision rate, recall rate and F1 factor are all 100%.  In reviewing the numbers though that make up this calculation they are very low in comparison to the total number of loans.  Perhaps a more thorough review is needed here.  
 
    

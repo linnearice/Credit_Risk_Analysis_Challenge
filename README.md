@@ -22,13 +22,13 @@ The random oversampling produced a balanced accuracy score of 66% which is decen
 
 ![SMOTE](https://user-images.githubusercontent.com/35401581/145309818-dbc7ada4-cc41-48c3-ae8a-570ef4dbecd8.png)
 
-New high risk loan examples were synthesized in SMOTE to even out the imbalance between samples of the low and high risk loan portfolio.  In this model, performance was very close to the same as the random oversampling model.  This model also has an accuracy score of 66%, only a 1% high risk precision score, and a 100% low risk prescision.  The average F1 score is improved to 82% as compared to random oversampling at 75%.  
+New high risk loan examples were synthesized in SMOTE to even out the imbalance between samples of the low and high risk loan portfolio.  In this model, performance was very close to the same as the random oversampling model.  This model also has an accuracy score of 66%, only a 1% high risk precision score, and a 100% low risk prescision.  The average F1 score is improved to 82% as compared to random oversampling at 75%.  The sensitivity rate is 61% overall.
 
 **Cluster Centroids**
 
 ![Cluster Centroids](https://user-images.githubusercontent.com/35401581/145309830-1525d320-5301-4e68-8286-e982379bc910.png)
 
-In this model, DAI undersampled a cluster of the majority class of low risk loans in hopes of improving regression accuracy.  Unfortunately, this model underperformed the prior oversampling models with a cluster centroid accuracy score of 54% and an average F1 score of 56%.  Due to the high number of false positives, the low risk loan's sensitivity rate is low at 40%  
+In this model, DAI undersampled a cluster of the majority class of low risk loans in hopes of improving regression accuracy.  Unfortunately, this model underperformed the prior oversampling models with a cluster centroid accuracy score of 54% and an average F1 score of 56%.  Due to the high number of false positives, the low risk loan's sensitivity rate is low at 40% and a 40% rate overall.  The precision ratios are very close to those of the prior two models with a very low 1% high risk loan precision rate.
 
 **SMOTEENN**
 
@@ -36,11 +36,11 @@ In this model, DAI undersampled a cluster of the majority class of low risk loan
 
 In this model DAI combined undersampling and oversampling combined with the EditedNearestNeighbor method (SMOTEENN).  Again, the results were very close to the previous models most closely following Random Oversampling.  The accuracy score is 68%.  The high risk precision rate is 1% and the low risk is 100% with a low risk sensitivity rate of 57% and an overall F1 factor of 72%.  
 
-**Random Forest Classifier**
+**Balanced Random Forest Classifier**
 
-![Random Forest Classifier](https://user-images.githubusercontent.com/35401581/145309892-894e71a4-1e39-49e5-9c30-c7b913d69cf2.png)
+![Balanced Random Forest Classifier](https://user-images.githubusercontent.com/35401581/145722381-57b66e09-d2eb-407b-9fa4-a708539fafd0.png)
 
-The Random Forest Classifier is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting.  This method appears to outperform the prior methods in some ways. The accuracy score is 68%, still relatively the same as the other models aside from the cluster centroid method which was lower.  However, the precision score for the high-risk loans is much improved at 88%.  While the average F1 score is 100%, the high risk loans have a 37% recall rate and a 52% F1 factor.  
+A balanced random forest randomly under-samples each boostrap sample to balance it. ... If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples.  This method appears to outperform the prior methods in some ways. The accuracy score is 79%.  The average F1 score is 93%.  The high risk loans have a 87% recall rate and the average recall rate is 70%.  However, The precision score for the high-risk loans is still low at 3% and the F1 score for this category is also low at 6%.  
 
 **Easy Enemble Classifier**
 
@@ -49,9 +49,9 @@ The Random Forest Classifier is a meta estimator that fits a number of decision 
 This algorithm is known as EasyEnsembleClassifier. The classifier is an ensemble of AdaBoost learners trained on different balanced boostrap samples. The balancing is achieved by random under-sampling.  This model outperforms all other models based on an accuracy rate of 93%.  However, the precision of high risk loans is still low at 9% with a sensitivity or recall ratio of 92% but with an F1 factor of 16%.
 
 ## Summary
-In reviewing all six models, the ensembler methods - the Easy Ensemble Classifer and Random Forest Classifier models - yielded the best results, respectively.  
-* The best candidate is Easy Ensembler Classifier which has the best overall accuracy rate of 93%.  The overall sensitivity (recall) rate was second at 94% as was the overall F1 score at 97%.  However, when predicting high risk candidates the the precision rate was still low at 9%.  Perhaps there is room for improvement.
-* The Random Forest Classifier has a decent but not as solid accuracy rate of 68%.  Out of all of the models though Random Forest showed the highest high risk precision rate at 88%.  The overall precision rate, recall rate and F1 factor are all 100%.  In reviewing the numbers though that make up the high risk precision rate calculation, they are very low in comparison to the total number of loans.  Perhaps a more thorough review is needed here.  
+In reviewing all six models, the ensembler methods - the Easy Ensemble Classifer and Balanced Random Forest Classifier models - yielded the best results, respectively. 
+* The best candidate is Easy Ensembler Classifier which has the best overall accuracy rate of 93%.  The overall sensitivity (recall) rate was the highest at 94% as was the overall F1 score at 97%.  However, when predicting high risk candidates the the precision rate was still low at 9%.  Perhaps there is room for improvement.
+* The Balanced Random Forest Classifier has a decent but not as solid accuracy rate of 78%.  However, the other ratios were not as good as the Easy Ensemble Classifier.  
 
    
 
